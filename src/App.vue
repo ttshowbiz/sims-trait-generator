@@ -1,20 +1,11 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
+    <img alt="Sims logo" class="logo" src="@/assets/logo.svg" width="300" height="300" />
+    <h1 class="title green">Trait Generator</h1>
   </header>
 
   <RouterView />
@@ -29,6 +20,13 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+}
+
+.title {
+  text-align: center;
+  font-weight: 500;
+  font-size: 2.6rem;
+  top: -10px;
 }
 
 nav {
@@ -61,6 +59,10 @@ nav a:first-of-type {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
+  }
+
+  .greetings {
+    text-align: left;
   }
 
   .logo {
