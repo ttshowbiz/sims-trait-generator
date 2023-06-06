@@ -8,6 +8,76 @@
   font-weight: normal;
 }
 
+#container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+}
+
+#dlcs {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  width: 100%;
+}
+
+#banner {
+  text-align: center;
+}
+
+#traits {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.parent {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  max-width: 300px;
+  margin: 10px;
+}
+
+.trait-selector {
+  display: flex;
+  flex-direction: row;
+  float: left;
+}
+
+button {
+  max-height: 35px;
+  background-color: rgb(33,185,107);
+  border-radius: 5px;;
+  
+}
+
+select {
+  margin: 5px;
+}
+
+.row {
+  margin: 25px;
+}
+
+label {
+  display: block;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-indent: -15px;
+}
+
+input {
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  margin: 0;
+  vertical-align: bottom;
+  position: relative;
+  top: -1px;
+}
+
 a,
 .green {
   text-decoration: none;
@@ -25,11 +95,5 @@ a,
   body {
     display: flex;
     place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
   }
 }
