@@ -36,22 +36,25 @@
         </div>
       </div>
       <div id="secondaryParent" class="parent">
-        <h1>Secondary Parent</h1>
+        <div style="display:flex; flex-direction: row; align-items: center;">
+          <input style="margin: 5px" type="checkbox" id="parent2" name="useSecondParent" value="SecondaryParent" @change="toggle_parent($event)" checked>
+          <h1>Secondary Parent</h1>
+        </div>
         <div class="trait-selector">
           <h3>Trait 1</h3>
-          <select @change="$event => update_parent($event, 0, 2)">
+          <select @change="$event => update_parent($event, 0, 2)" :disabled="this.parent_2_disabled">
             <option v-for="trait in traits" v-bind:value="trait.name">{{ trait.name }}</option>
           </select>
         </div>
         <div class="trait-selector">
           <h3>Trait 2</h3>
-          <select @change="$event => update_parent($event, 1, 2)">
+          <select @change="$event => update_parent($event, 1, 2)" :disabled="this.parent_2_disabled">
             <option v-for="trait in traits" v-bind:value="trait.name">{{ trait.name }}</option>
           </select>
         </div>
         <div class="trait-selector">
           <h3>Trait 3</h3>
-          <select @change="$event => update_parent($event, 1, 2)">
+          <select @change="$event => update_parent($event, 1, 2)" :disabled="this.parent_2_disabled">
             <option v-for="trait in traits" v-bind:value="trait.name">{{ trait.name }}</option>
           </select>
         </div>
@@ -109,7 +112,8 @@ export default {
           teen_trait: "teen",
           adult_trait: "adult",
           parent_1_traits: [defaultTraits[0].name, defaultTraits[0].name, defaultTraits[0].name],
-          parent_2_traits: [defaultTraits[0].name, defaultTraits[0].name, defaultTraits[0].name]
+          parent_2_traits: [defaultTraits[0].name, defaultTraits[0].name, defaultTraits[0].name],
+          parent_2_disabled: false
         }
     },
     computed: {
@@ -119,7 +123,9 @@ export default {
       parent_traits() {
         let parent_traits = []
         this.parent_1_traits.forEach(trait => parent_traits.push(trait))
-        this.parent_2_traits.forEach(trait => parent_traits.push(trait))
+
+        if(!this.parent_2_disabled)
+          this.parent_2_traits.forEach(trait => parent_traits.push(trait))
         
         return parent_traits
       }
@@ -203,11 +209,19 @@ export default {
       generate_trait(num_inherited_traits) {
         let inherit = this.should_inherit_trait(num_inherited_traits)
 
+        console.log(this.parent_traits)
+
         if(inherit) {
           return this.parent_traits[this.get_random_int(this.parent_traits.length)]
         } else {
           return this.traits[this.get_random_int(this.traits.length)].name
         }
+      },
+      toggle_parent(event) {
+        if(event.currentTarget.checked)
+          this.parent_2_disabled = false
+        else 
+          this.parent_2_disabled = true
       }
     }
 }
