@@ -32,6 +32,12 @@
   align-items: center;
 }
 
+#child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .parent {
   display: flex;
   flex-direction: column;
@@ -46,11 +52,21 @@
   float: left;
 }
 
+.child-trait {
+  display: flex;
+  flex-direction: row;
+  float: left;
+}
+
+.child-trait h3 {
+  text-align: center;
+  margin: 5px;
+}
+
 button {
   max-height: 35px;
   background-color: rgb(33,185,107);
   border-radius: 5px;;
-  
 }
 
 select {
