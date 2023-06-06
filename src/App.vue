@@ -192,7 +192,6 @@ export default {
       },
       should_inherit_trait(num_inherited_traits) {
         let num = this.get_random_int(10)
-        console.log(`num inherited: ${num_inherited_traits} new: ${num}`)
 
         if(num_inherited_traits == 0) 
           return num < 5
@@ -202,9 +201,7 @@ export default {
           return num <= 1
       },
       generate_trait(num_inherited_traits) {
-        console.log('generate')
         let inherit = this.should_inherit_trait(num_inherited_traits)
-        console.log(`inherit: ${inherit}`)
 
         if(inherit) {
           return this.parent_traits[this.get_random_int(this.parent_traits.length)]
